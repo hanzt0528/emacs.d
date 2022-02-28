@@ -1,4 +1,4 @@
-## Bozhidar's Emacs config
+## hanzhongtao's Emacs config
 
 This repo contains my personal Emacs configuration. I don't advise
 people to use it directly and I won't be accepting pull requests
@@ -15,4 +15,4 @@ $ ln -s ~/projects/emacs.d/init.el .emacs.d/init.el
 The above assumes you've cloned the repo under `~/projects`.
 
 If you're looking for a nice (and way better structured) setup, check out
-my [Prelude](https://github.com/bbatsov/prelude) project.
+my [Hanzt0828](https://github.com/hanzt0528) project.
