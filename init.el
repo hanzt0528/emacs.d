@@ -35,6 +35,11 @@
 
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
+
+(setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
+                         ("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")))
+
 ;; keep the installed packages in .emacs.d
 (setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
 (package-initialize)
@@ -87,7 +92,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(google-translate ido-vertical-mode multiple-cursors doom-themes company use-package)))
+   (quote
+    (lsp-mode company-c-headers google-translate ido-vertical-mode multiple-cursors doom-themes company use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -112,3 +118,15 @@
 ;; show line number
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
+
+  
+;; for c++ develop complate
+;;sudo apt-get install clang
+;;M-x package-install RET company RET
+(add-hook 'after-init-hook 'global-company-mode)
+
+;;lsp-mode
+;;M-x package-install RET lsp-mode RET
+;;install c++ server
+;;apt-get install clangd-12
+;;M-x or lsp-install-server
