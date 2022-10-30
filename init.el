@@ -74,7 +74,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one t)
+  ;;(load-theme 'doom-one t)
   (load-theme 'doom-acario-dark t)
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -82,7 +82,6 @@
   (doom-themes-neotree-config)
   ;; or for treemacs users
   ;;(setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-  (setq doom-themes-treemacs-theme "doom-one") ; use "doom-colors" for less minimal icon theme
   (doom-themes-treemacs-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
@@ -93,7 +92,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (lsp-mode company-c-headers google-translate ido-vertical-mode multiple-cursors doom-themes company use-package))))
+    (lsp-ui lsp-mode company-c-headers google-translate ido-vertical-mode multiple-cursors doom-themes company use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -121,12 +120,13 @@
 
   
 ;; for c++ develop complate
-;;sudo apt-get install clang
 ;;M-x package-install RET company RET
+;;sudo apt-get install clang ;; install company backend for c++
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-minimum-prefix-length 1
+      company-idle-delay 0.0) ;; default is 0.2
 
-;;lsp-mode
-;;M-x package-install RET lsp-mode RET
+
 ;;install c++ server
 ;;apt-get install clangd-12
 ;;M-x or lsp-install-server
